@@ -1,14 +1,14 @@
 from datetime import timedelta, datetime
 from sqlalchemy.orm import Session
 
-from app.constants import appConstants
-from ..database.models import Event
-from ..schemas.events import EventCreate
+from constants import appConstants
+from database.models import Event
+from schemas.events import EventCreate
 from dateutil.parser import parse
 
 from sqlalchemy_filters import apply_filters
 from dateutil.relativedelta import relativedelta
-from ..utilities.index import get_random_color
+from utilities.index import get_random_color
 
 
 def event_to_dict(event: Event) -> dict:

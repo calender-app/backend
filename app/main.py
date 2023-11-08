@@ -1,11 +1,12 @@
 from fastapi import FastAPI
 from fastapi.middleware.cors import CORSMiddleware
-from .apis import events
+from apis import events
 from fastapi.exceptions import RequestValidationError
 import logging
 
-from .middlewares.errorHandler import validation_error_handler
-from .middlewares.tokenAuth import check_bearer_token
+from middlewares.errorHandler import validation_error_handler
+from middlewares.tokenAuth import check_bearer_token
+import uvicorn
 
 app = FastAPI()
 logging.basicConfig()
@@ -29,6 +30,9 @@ app.add_exception_handler(RequestValidationError, validation_error_handler)
 # apply the token auth middleware
 
 # Register routes
-app.middleware("http")(check_bearer_token)
+# app.middleware("http")(check_bearer_token)
 
 app.include_router(events.router)
+
+if __name__ == "__main__":
+    uvicorn.run(app, host="0.0.0.0", port=8000)

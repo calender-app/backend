@@ -2,10 +2,6 @@ version: '3'
 services:
   postgres:
     image: postgres:latest
-    environment:
-      POSTGRES_DB: cal
-      POSTGRES_USER: riajul
-      POSTGRES_PASSWORD: password
     ports:
       - "5432:5432"
     volumes:
@@ -16,12 +12,6 @@ services:
       context: .
     depends_on:
       - postgres
-    environment:
-      DB_HOST: postgres
-      DB_PORT: 5432
-      DB_NAME: cal
-      DB_USER: riajul
-      DB_PASSWORD: password
     ports:
       - "8000:8000"
     command: ["python", "app/main.py"]

@@ -1,7 +1,7 @@
 from pydantic import ValidationError
 from fastapi import Request
 from fastapi.responses import JSONResponse
-from ..constants import appConstants
+from constants import appConstants
 
 # Only validation error handled, all types of error should be handle to avoid app app crash
 

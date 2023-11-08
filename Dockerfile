@@ -4,6 +4,8 @@ FROM python:3.10
 # Set environment variables
 ENV PYTHONDONTWRITEBYTECODE 1
 ENV PYTHONUNBUFFERED 1
+ENV DATABASE_URL='postgresql://riajul:password@postgres:5432/caleappp'
+ENV API_TOKEN='sdf23sdfsafasfdasqweqweasdsadasd'
 
 # Create and set the working directory
 WORKDIR /app
@@ -22,5 +24,5 @@ COPY . /app/
 # Expose your application's port (if needed)
 EXPOSE 8000
 
-# Start your application
-CMD ["uvicorn", "app.main:app", "--host", "0.0.0.0", "--port", "8000"]
+# Add Alembic migration command
+CMD ["alembic", "upgrade", "head"]

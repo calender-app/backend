@@ -48,4 +48,3 @@ class EventCollectionResponse(BaseModel):
 class EventObjectResponse(BaseModel):
     success: bool
     message: str
-    data: Event
