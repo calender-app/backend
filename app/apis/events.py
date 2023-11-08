@@ -39,7 +39,6 @@ def read_event(event_id: int, db: Session = Depends(get_db), api_token=None):
 
 @router.get("/events/", response_model=EventCollectionResponse)
 def read_events(skip: int = 0, limit: int = 100, filter_string=None, db: Session = Depends(get_db),  api_token=None, currentDate: str = None):
-    print({currentDate})
     events = get_events(db, skip, limit, filter_string, currentDate)
     return {"success": True, "message": "Events successfully fetched", "data": events}
 

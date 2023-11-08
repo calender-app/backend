@@ -29,6 +29,6 @@ app.add_exception_handler(RequestValidationError, validation_error_handler)
 # apply the token auth middleware
 
 # Register routes
-# app.middleware("http")(check_bearer_token)
+app.middleware("http")(check_bearer_token)
 
 app.include_router(events.router)
