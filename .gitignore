@@ -9,3 +9,4 @@ venv/
 .db.sqlite3
 *.egg-info/
 dist/
+.DS_Store
